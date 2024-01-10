@@ -46,10 +46,19 @@ export default function RegistrationForm() {
 
   const handleSubmitForm = async (data: IuserRegister) => {
     try {
+
+      // toast loading
+      
+
+
+
       const response = await axios.post("/api/users/register", data);
       console.log("response:", response);
+      // toast success
     } catch (error: any) {
+      // toast error
     } finally {
+      // toast close
     }
   };
 
