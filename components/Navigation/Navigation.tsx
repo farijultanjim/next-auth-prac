@@ -1,3 +1,5 @@
+"use client";
+
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
@@ -36,7 +38,14 @@ const Navigation = () => {
             </Link>
           ))}
 
-          
+          <button
+            className="hover:bg-black text-white px-5 py-4 uppercase"
+            onClick={() => {
+              signOut();
+            }}
+          >
+            Logout
+          </button>
         </div>
       </div>
     </div>
