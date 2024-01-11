@@ -1,11 +1,12 @@
 "use client";
 
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import toast from "react-hot-toast";
 import { Label } from "@radix-ui/react-label";
 import { Button } from "../ui/button";
 import { CardContent, CardFooter } from "../ui/card";
 import { Input } from "../ui/input";
-import axios from "axios";
 
 interface IuserRegister {
   name: string;
@@ -45,20 +46,20 @@ export default function RegistrationForm() {
   });
 
   const handleSubmitForm = async (data: IuserRegister) => {
+    // toast loading
+    const toastLoading = toast.loading("Processing...");
     try {
-
-      // toast loading
-      
-
-
-
       const response = await axios.post("/api/users/register", data);
       console.log("response:", response);
+
       // toast success
+      toast.success("User registration completed successfully");
     } catch (error: any) {
       // toast error
+      toast.error("Registration failed", error?.message);
     } finally {
       // toast close
+      toast.dismiss(toastLoading);
     }
   };
 

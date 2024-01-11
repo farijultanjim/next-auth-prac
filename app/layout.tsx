@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "@/components/Navigation/Navigation";
+import ToasterContext from "@/context/ToasterContext";
 
 export const metadata: Metadata = {
   title: "Next AUTH",
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body className="bg-slate-50">
         <Navigation />
         {children}
+        <ToasterContext />
       </body>
     </html>
   );
